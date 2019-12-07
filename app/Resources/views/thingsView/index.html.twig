@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+	
+	{% block jumboHead %}
+	    E.V.E.N.T.S.
+	{% endblock %}
+	{% block jumboText %}
+	    simply the most wanted and top tier events in vienna
+	{% endblock %}
+
+	{% block body %}
+	    <div class="container">
+	    	<div class="row justify-content-around">
+	    		{% for t in thing %}
+					<div class="card col-3 m-2 pt-2">
+						<img src="{{asset('images/')}}{{t.img}}" class="card-img-top">
+						<div class="card-body">
+							<h5 class="card-title">{{t.name}}</h5>
+							<p class="card-text">{{t.description}}</p>
+							<a href="/thingsView/view/{{t.id}}" class="btn btn-primary">More ..</a>
+							<a href="/thingsView/delete/{{t.id}}" class="btn btn-danger">Delete</a>
+							<a href="/thingsView/edit/{{t.id}}" class="btn btn-warning">Edit</a>
+						</div>
+					</div>
+				{% endfor %}
+	    	</div>
+	    </div>
+	{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block jumboHead %}
+    Viewer
+{% endblock %}
+{% block body %}
+    <div class="container">
+    	{% for t in thing %}
+			<div class="card col-12">
+				<img src="{{asset('images/')}}{{t.img}}" class="card-img-top">
+				<div class="card-body">
+					<h5 class="card-title">{{t.name}}</h5>
+					<p class="card-text">{{t.description}}</p>
+					<a href="{{path('index_page')}}" class="btn btn-primary">Back</a>
+					<a href="/thingsView/edit/{{t.id}}" class="btn btn-warning">Edit</a>
+					<a href="/thingsView/delete/{{t.id}}" class="btn btn-danger">Delete</a>
+				</div>
+			</div>
+		{% endfor %}
+    </div>
+{% endblock %}
